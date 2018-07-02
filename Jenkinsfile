@@ -16,7 +16,7 @@ node {
         }
         stage 'Clone the project'{
         steps {
-            git 'https://github.com/Stonerville/my-elr-backend.git'
+            git url: 'https://github.com/Stonerville/my-elr-backend.git'
         }
         }
    
