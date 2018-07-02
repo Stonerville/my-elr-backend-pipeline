@@ -1,5 +1,4 @@
 node {
-    stages {
         stage('check env') {
             parallel {
                 stage('check mvn') {
