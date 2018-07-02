@@ -1,4 +1,5 @@
 node {
+    stages{
         stage('check env') {
             parallel {
                 stage('check mvn') {
@@ -12,11 +13,6 @@ node {
                 }
                 }
             }
-        }
-        stage 'Clone the project'{
-        steps {
-            git url: 'https://github.com/Stonerville/my-elr-backend.git'
-        }
         }
    
     dir('my-elr-backend') {
@@ -76,5 +72,5 @@ node {
                 }   
             }
         }
-    }
+}    }
 }
