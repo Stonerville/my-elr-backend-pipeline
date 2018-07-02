@@ -1,8 +1,26 @@
 node {
-    stage 'Clone the project'
-    git 'https://github.com/Stonerville/my-elr-backend.git'
+    stages {
+        stage('check env') {
+            parallel {
+                stage('check mvn') {
+                steps {
+                    sh 'mvn -v'
+                }
+                }
+                stage('check java') {
+                steps {
+                    sh 'java -version'
+                }
+                }
+            }
+        }
+        stage 'Clone the project'{
+        steps {
+            git 'https://github.com/Stonerville/my-elr-backend.git'
+        }
+        }
    
-    dir('spring-jenkins-pipeline') {
+    dir('my-elr-backend') {
         stage("Compilation and Analysis") {
             parallel 'Compilation': {
                 sh "mvn clean install -DskipTests"
