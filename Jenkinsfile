@@ -1,4 +1,4 @@
-node {
+pipeline {
     stages{
         stage('check env') {
             parallel {
